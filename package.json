@@ -1,0 +1,22 @@
+{
+  "name": "blogfoot",
+  "version": "1.0.0",
+  "description": "Blog pour passionnés de Football",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Younes",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "express-fileupload": "^0.1.4",
+    "express-session": "^1.15.4",
+    "method-override": "^2.3.9",
+    "mysql": "^2.14.0",
+    "promise-mysql": "^3.0.2"
+  }
+}

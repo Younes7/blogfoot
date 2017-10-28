@@ -1,0 +1,23 @@
+<%include ./partials/header%>
+<% home.forEach(function(home){ %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="card mb-3">
+            <img class="card-img-top" src="public/img/upload/img_<%= home.image %>" width="200" height="200" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title"><%=home.title%></h4>
+              <p class="card-text"></p>
+              <p class="card-text"><small class="text-muted"><%= home.date %></small></p>
+              <a class="btn btn-default" href="/post/voir/<%= home.id %>"><span class="glyphicon glyphicon-eye-open"></span><em>[lire la suite]</em></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+<%}) %>
+<%include ./partials/footer%>

@@ -1,0 +1,51 @@
+<!-- header -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <!-- navbar créer avec un middleware les différencier-->
+    <% if(!moderateur){ %>
+    <nav class="navbar navbar-toggleable-md bg navbar-inverse" style="background:#2E8B57;">
+    <% } else{ %>
+    <nav class="navbar navbar-toggleable-md bg-danger navbar-inverse">
+    <% } %>
+      <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <div class="navbar-nav">
+            <% if(!moderateur){ %>
+            <a class="nav-item nav-link active" href="/login">Connexion</a>
+            <% } else{ %>
+            <a class="nav-item nav-link active" href="/deconnexion">Déconnexion</a>
+            <a class="nav-item nav-link" href="/edit">Write</a>
+            <% } %>
+            <% if(admin){ %>
+            <a class="nav-item nav-link" href="/admin">Dashboard</a>
+            <a class="nav-item nav-link" href="/liste">Liste</a>
+            <a class="nav-item nav-link" href="/parametre">Paramètres</a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <% if(!moderateur){ %>
+    <div class="jumbotron jumbotron-fluid bg text-white text-center" style="background:#2E8B57;">
+    <% } else{ %>
+    <div class="jumbotron jumbotron-fluid bg-danger text-white text-center">
+    <% } %>
+      <div class="container">
+        <h1 class="display-1">Blog Foot</h1>
+        <p class="lead">Blog de Fan de football italien</p>
+      </div>
+    </div>
+  </body>

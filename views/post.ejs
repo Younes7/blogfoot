@@ -1,0 +1,88 @@
+<%include ./partials/header%>
+<% post.forEach(function(item){ %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-md-center col-sm-12 text-sm-center col-xs-12 text-xs-center">
+      <h1><%= item.title %></h1>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-5 col-xs-12 col-sm-12">
+          <img src="/public/img/upload/img_<%= item.image %>" width="300px" alt="Responsive image">
+          <br><br>
+          <p>Auteur: <em><%= item.writer %></em></p>
+          <br><br>
+          <p>Date : <em><%= item.date %></em></p>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <p><%= item.content %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Commentaire</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% item.comments.forEach(function(item){ %>
+        <tr>
+          <td><strong><%= item.name %></strong></td>
+          <td><%= item.comment %></td>
+        </tr>
+        <%}) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md text-md-center">
+    </div>
+    <br><br><br>
+    <form method="post">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            
+            <div class="form-control">
+              <label for="name">Nom</label>
+              <br>
+              <input type="text" name="name" id="name"/>
+            </div>
+
+            <div class="form-control">
+              <label for="email">Adresse email</label>
+              <br>
+              <input type="email" name="email" id="email"/>
+            </div>
+
+            <div class="form-control">
+              <label for="comment">Commentaire</label>
+              <br>
+              <textarea name="comment" id="comment" class="materialize-textarea"></textarea>
+            </div>
+
+            <div class="form-control">
+              <button type="submit" name="submit" class="btn waves-effect">
+                Commenter ce post
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<%}) %>
+<%include ./partials/footer%>

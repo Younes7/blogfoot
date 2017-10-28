@@ -1,0 +1,67 @@
+<%include ./partials/header%>
+<div class="container">
+  <div class="rows">
+    <div class="col-md">
+
+      <h1>Tableau de bord</h1><br>
+      <div class="card-group">
+        <div class="card card-primary">
+          <div class="card-block">
+            <h4 class="card-title">Publications</h4>
+
+            <p class="card-text"></p>
+          </div>
+        </div>
+
+        <div class="card card-success">
+          <div class="card-block">
+            <h4 class="card-title">Commentaires</h4>
+            <p class="card-text"></p>
+          </div>
+        </div>
+
+        <div class="card card-warning">
+          <div class="card-block">
+            <h4 class="card-title">Administrateurs</h4>
+            <p class="card-text"></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div><br><br>
+<!-- ejs utiliser par afficher les informations de la page de données-->
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <h2>Commentaires non lus</h2><br><br>
+      <table class="table">
+        <thead class="thead-inverse">
+          <th>Article</th>
+          <th>Commentaire</th>
+          <th>Actions</th>
+        </thead>
+<% rows.forEach(function(item){ %>
+      <tr>
+        <td><%= item.title%></td>
+        <th><%= item.comment%></th>
+        <td width=500>
+          <form action="/admin/suppr/<%=item.comment_id%>" method="post">
+            <input type="hidden" name="_method" value="delete"/>
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+          </form>
+          <% if(item.seen === 0){ %>
+          <form action="/admin/comment/<%=item.comment_id%>" method="post">
+          <button type="submit" class="btn btn-success">Valider</button>
+          </form>
+          <% } %>
+      </td>
+    </tr>
+<%}) %>
+  </table>
+    </div>
+  </div>
+</div>
+
+<%include ./partials/footer%>
